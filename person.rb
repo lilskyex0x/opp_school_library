@@ -15,6 +15,8 @@ class Person
     false
   end
 
+  private
+
   def of_age?
     return true if age >= 18
 
