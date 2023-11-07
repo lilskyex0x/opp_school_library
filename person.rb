@@ -9,6 +9,11 @@ class Person < Nameable
     @age = age
     @name = name
     @parent_permission = parent_permission
+    super()
+  end
+
+  def correct_name
+    @name
   end
 
   def can_use_services?
