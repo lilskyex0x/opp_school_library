@@ -32,6 +32,6 @@ class Person < Nameable
   private
 
   def of_age?
-    @age >= 18
+    @age.to_i >= 18
   end
 end
