@@ -58,4 +58,18 @@ class App
     @people.push Teacher.new(age: age, name: name, specialization: specialization, parent_permission: parent_permission)
     puts 'Person created successfully!'
   end
+
+  def student_create
+    puts 'Age:'
+    age = gets.chomp
+    puts 'Name:'
+    name = gets.chomp
+    puts 'Has parent permission? [y/n]'
+    permission = gets.chomp.downcase
+    parent_permission = permission == 'y'
+    puts 'Classroom'
+    classroom = gets.chomp
+    @people.push Student.new(age: age, name: name, parent_permission: parent_permission, classroom: classroom)
+    puts 'Person created successfully!'
+  end
 end
