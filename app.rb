@@ -15,7 +15,7 @@ class App
     if @books.empty?
       puts 'There is no book in the list'
     else
-      @book.each_with_index do |book, index|
+      @books.each_with_index do |book, index|
         puts "#{index} - Title: #{book.title.capitalize}, Author: #{book.author.capitalize}"
       end
     end
