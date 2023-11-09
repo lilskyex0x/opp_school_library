@@ -8,6 +8,7 @@ def main
 
   loop do
     display_menu
+    option = gets.chomp
     options(option, app)
   end
 end
