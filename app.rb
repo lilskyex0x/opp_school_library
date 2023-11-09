@@ -3,11 +3,12 @@ require './student'
 require './teacher'
 
 class App
-  attr_accessor :books, :people
+  attr_accessor :books, :people, :rentals
 
   def initialize
     @books = []
     @people = []
+    @rentals = []
   end
 
   def book_list
@@ -35,7 +36,7 @@ class App
   end
 
   def person_create
-    puts 'Do you want to create a student (1) or a teacher (2)? [enter a number]:'
+    puts 'Do you want to create a student (1) or a teacher (2)? [Input the number]:'
     number = gets.chomp
     case number
     when '1'
@@ -81,5 +82,24 @@ class App
     book = Book.new(title, author)
     @books.push(book)
     puts 'Book created successfully!'
+  end
+
+  def new_rental
+    puts 'Select a book from the following list by number:'
+    book_list
+    book_index = gets.chomp.to_i
+    rented_book = @books[book_index]
+    puts 'Select a person from the following list by number (not id)'
+    people_list
+    person_index = gets.chomp.to_i
+    renter = @people[person_index]
+    puts 'Date (YYYY-MM-DD):'
+    date = gets.chomp
+    if renter.can_use_services?
+      @rentals.push Rental.new(date, rented_book, renter )
+      puts 'Rental created successfully'
+    else
+      puts 'Person lacks borrow permissions'
+    end
   end
 end
