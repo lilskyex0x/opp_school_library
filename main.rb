@@ -5,6 +5,11 @@ def main
 
   puts 'Welcome to School Library App!'
   puts ' '
+
+  loop do
+    display_menu
+    options(option, app)
+  end
 end
 
 def display_menu
