@@ -96,10 +96,23 @@ class App
     puts 'Date (YYYY-MM-DD):'
     date = gets.chomp
     if renter.can_use_services?
-      @rentals.push Rental.new(date, rented_book, renter )
+      @rentals.push Rental.new(date, rented_book, renter)
       puts 'Rental created successfully'
     else
       puts 'Person lacks borrow permissions'
+    end
+  end
+
+  def rental_list
+    puts 'ID of person:'
+    renter_id = gets.chomp
+    renter = @people.select { |person| person.id == renter_id.to_i }
+    if renter.empty?
+      puts 'No rentals found'
+    else
+      renter.first.rentals.map do |rental|
+        puts "Date: #{rental.date}, Book: #{rental.book.title}, by #{rental.book.author}"
+      end
     end
   end
 end
