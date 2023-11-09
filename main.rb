@@ -11,8 +11,8 @@ def main
     option = gets.chomp
 
     if option == '7'
-        puts 'Thank you for using this app!'
-        break
+      puts 'Thank you for using this app!'
+      break
     end
     options(option, app)
   end
