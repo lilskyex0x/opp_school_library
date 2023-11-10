@@ -32,17 +32,6 @@ class Person < Nameable
   private
 
   def of_age?
-    @age >= 18
+    @age.to_i >= 18
   end
 end
-
-person = Person.new(22, name: 'maximilianus')
-person.correct_name
-
-capitalized_person = CapitalizeDecorator.new(person)
-
-puts capitalized_person.correct_name
-
-capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
-
-puts capitalized_trimmed_person.correct_name
