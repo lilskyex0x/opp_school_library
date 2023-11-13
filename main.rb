@@ -1,8 +1,7 @@
 require './app'
 require './library_app'
 
-app = App.new
-LibraryApp.new
-app.run
-
 LibraryApp.start
+
+app = App.new
+app.run
