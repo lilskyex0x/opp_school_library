@@ -1,7 +1,6 @@
 require './book'
 require './student'
 require './teacher'
-require 'pry'
 
 class App
   attr_accessor :books, :people, :rentals
@@ -97,7 +96,6 @@ class App
     parent_permission = permission == 'y'
     puts 'Classroom'
     classroom = gets.chomp
-    binding.pry
     @people.push Student.new(age: age, name: name, parent_permission: parent_permission, classroom: classroom)
     puts 'Person created successfully!'
   end
