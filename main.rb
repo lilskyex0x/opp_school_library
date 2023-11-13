@@ -1,5 +1,3 @@
-# main.rb
-
 require './app'
 require './library_app'
 
