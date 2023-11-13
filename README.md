@@ -131,6 +131,12 @@ Not deployed
 - Twitter: [@ramgt001](https://twitter.com/ramgt001)
 - LinkedIn: [Tshepo Gladwin Ramantso](https://www.linkedin.com/in/tshepo-ramantso-b6a35433/)
 
+👤 **Aung Pyae Khant**
+
+- GitHub: [@lilskyex0x](https://github.com/lilskyex0x)
+- Twitter: [@Aung Pyae Khant](https://twitter.com/LilSn0w45)
+- LinkedIn: [Aung Pyae Khant](www.linkedin.com/in/aung-pyae-khant-932342251)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
