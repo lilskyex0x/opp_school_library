@@ -11,32 +11,6 @@ class App
     @rentals = []
   end
 
-  def run
-    loop do
-      display_menu
-      option = gets.chomp
-
-      break if option == '7'
-
-      process_options(option)
-    end
-
-    puts 'Thank you for using this app!'
-  end
-
-  def process_options(option)
-    case option
-    when '1' then book_list
-    when '2' then people_list
-    when '3' then person_create
-    when '4' then new_book
-    when '5' then new_rental
-    when '6' then rental_list
-    else
-      puts 'This is not a valid option'
-    end
-  end
-
   def book_list
     if @books.empty?
       puts 'There is no book in the list'
