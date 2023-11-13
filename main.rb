@@ -1,37 +1,11 @@
 require './app'
+require './library_app'
 
-def main
-  app = App.new
+LibraryApp.start
 
-  puts 'Welcome to School Library App!'
-  puts ' '
+app = App.new
 
-  loop do
-    display_menu
-    option = gets.chomp
-
-    if option == '7'
-      puts 'Thank you for using this app!'
-      break
-    end
-    options(option, app)
-  end
-end
-
-def display_menu
-  puts 'Please choose an option by entering a number:'
-  puts '1 - List all books'
-  puts '2 - List all people'
-  puts '3 - Create a person'
-  puts '4 - Create a book'
-  puts '5 - Create a rental'
-  puts '6 - List all rentals for a given person id'
-  puts '7 - Exit'
-  puts ' '
-  puts 'Enter number: '
-end
-
-def options(option, app)
+def process_options(app, option)
   case option
   when '1' then app.book_list
   when '2' then app.people_list
@@ -44,4 +18,13 @@ def options(option, app)
   end
 end
 
-main
+loop do
+  app.display_menu
+  option = gets.chomp
+
+  break if option == '7'
+
+  process_options(app, option)
+end
+
+puts 'Thank you for using this app!'
