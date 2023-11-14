@@ -2,7 +2,7 @@ require 'json'
 
 def write_file(obj, filename)
   data = obj.map(&:to_h)
-  data_json = JSON.generate(data)
+  data_json = JSON.pretty_generate(data)
   File.write(filename, data_json, mode: 'w')
 end
 
