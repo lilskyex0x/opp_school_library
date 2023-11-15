@@ -18,13 +18,12 @@ class App
       puts 'There is no book in the list'
     else
       @books.each_with_index do |book, index|
-        rentals_str = book['rentals'].join(', ')  # Convert array to string
-        puts "#{index} - Title: #{book['title'].capitalize}, " +
-        "Author: #{book['author'].capitalize} Rentals: #{rentals_str}"
+        rentals_str = book['rentals'].join(', ') # Convert array to string
+        puts "#{index} - Title: #{book['title'].capitalize}, " \
+             "Author: #{book['author'].capitalize} Rentals: #{rentals_str}"
       end
     end
   end
-
 
   def people_list
     @people = read_file('./data/people.json')
@@ -90,15 +89,11 @@ class App
     @books = read_file('./data/books.json')
     book_index = get_user_input('').to_i
     rented_book = @books[book_index]
-
     puts 'Select a person from the following list by number (not id)'
     people_list
     @people = read_file('./data/people.json')
     person_index = get_user_input('').to_i
     renter = @people[person_index]
-    
-    puts "Renter class: #{renter.class}" 
-    puts "Renter data: #{renter.inspect}"
     puts 'Date (YYYY-MM-DD):'
     date = get_user_input('')
     if renter['parent_permission'] == true
