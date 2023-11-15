@@ -11,4 +11,14 @@ class Rental
     @person = person
     person.rentals << self
   end
+
+  def to_h
+    {
+      _class: self.class.name,
+      object_id: object_id,
+      date: @date,
+      book: @book,
+      person: @person
+    }
+  end
 end
