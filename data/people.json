@@ -91,5 +91,28 @@
 
     ],
     "classroom": "art"
+  },
+  {
+    "_class": "Student",
+    "object_id": 60,
+    "id": 255,
+    "name": "Steve",
+    "age": "23",
+    "parent_permission": true,
+    "rentals": [
+
+    ],
+    "classroom": "Arts"
+  },
+  {
+    "_class": "Teacher",
+    "object_id": 80,
+    "id": 767,
+    "name": "Marie",
+    "age": "Marie",
+    "specialization": "Math",
+    "rentals": [
+
+    ]
   }
 ]
