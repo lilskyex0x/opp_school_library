@@ -18,7 +18,8 @@ class App
       puts 'There is no book in the list'
     else
       @books.each_with_index do |book, index|
-        puts "#{index} - Title: #{book['title'].capitalize}, Author: #{book['author'].capitalize} Rentals: #{book['rentals']}"
+        puts "#{index} - Title: #{book['title'].capitalize},
+        Author: #{book['author'].capitalize} Rentals: #{book['rentals']}"
       end
     end
   end
