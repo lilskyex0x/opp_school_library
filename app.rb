@@ -90,14 +90,18 @@ class App
     @books = read_file('./data/books.json')
     book_index = get_user_input('').to_i
     rented_book = @books[book_index]
+
     puts 'Select a person from the following list by number (not id)'
     people_list
     @people = read_file('./data/people.json')
     person_index = get_user_input('').to_i
     renter = @people[person_index]
+    
+    puts "Renter class: #{renter.class}" 
+    puts "Renter data: #{renter.inspect}"
     puts 'Date (YYYY-MM-DD):'
     date = get_user_input('')
-    if renter['can_use_services']
+    if renter['parent_permission'] == true
       @rentals.push Rental.new(date, rented_book, renter)
       write_file(@rentals, './data/rentals.json')
       puts 'Rental created successfully'
@@ -113,8 +117,10 @@ class App
     if renter.nil?
       puts 'No rentals found'
     else
-      renter.rentals.each do |rental|
-        puts "Date: #{rental['date']}, Book: #{rental['book']['title']}, by #{rental['book']['author']}"
+      @rentals.each_with_index do |rental, index|
+        if rental['person']['id'] == renter_id.to_i
+          puts "#{index} Date: #{rental['date']}, Book: \"#{rental['book']['title']}\" by #{rental['book']['author']}"
+        end
       end
     end
   end
