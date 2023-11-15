@@ -102,5 +102,29 @@
     "rentals": [
 
     ]
+  },
+  {
+    "_class": "Teacher",
+    "object_id": 60,
+    "id": 825,
+    "name": "bob",
+    "age": "45",
+    "specialization": "art",
+    "can_use_services": true,
+    "rentals": [
+
+    ]
+  },
+  {
+    "_class": "Teacher",
+    "object_id": 60,
+    "id": 434,
+    "name": "bobMerley",
+    "age": "45",
+    "specialization": "Singing",
+    "parent_permission": true,
+    "rentals": [
+
+    ]
   }
 ]
