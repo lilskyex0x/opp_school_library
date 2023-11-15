@@ -91,5 +91,16 @@
 
     ],
     "classroom": "art"
+  },
+  {
+    "_class": "Teacher",
+    "object_id": 60,
+    "id": 748,
+    "name": "mgmg",
+    "age": "56",
+    "specialization": "geography",
+    "rentals": [
+
+    ]
   }
 ]
