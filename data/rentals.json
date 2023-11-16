@@ -1,0 +1,21 @@
+[
+  {
+    "date": "2023-11-16",
+    "book": {
+      "_class": "Book",
+      "object_id": 120,
+      "title": "Advanced Ruby",
+      "author": "RoR",
+      "rentals": [
+
+      ]
+    },
+    "person": {
+      "id": 705,
+      "age": "23",
+      "name": "lilsnow",
+      "parent_permission": true,
+      "classroom": "Art"
+    }
+  }
+]

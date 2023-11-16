@@ -1,0 +1,74 @@
+[
+  {
+    "_class": "Book",
+    "object_id": 60,
+    "title": "Ruby",
+    "author": "Ruby Gurus",
+    "rentals": [
+
+    ]
+  },
+  {
+    "_class": "Book",
+    "object_id": 100,
+    "title": "Ruby 101",
+    "author": "Tshepo",
+    "rentals": [
+
+    ]
+  },
+  {
+    "_class": "Book",
+    "object_id": 120,
+    "title": "Computer Science",
+    "author": "Dumisani",
+    "rentals": [
+
+    ]
+  },
+  {
+    "_class": "Book",
+    "object_id": 60,
+    "title": "something",
+    "author": "someone",
+    "rentals": [
+
+    ]
+  },
+  {
+    "_class": "Book",
+    "object_id": 100,
+    "title": "Advanced Mathematics ",
+    "author": "Maths Guru",
+    "rentals": [
+
+    ]
+  },
+  {
+    "_class": "Book",
+    "object_id": 120,
+    "title": "Advanced Ruby",
+    "author": "RoR",
+    "rentals": [
+
+    ]
+  },
+  {
+    "_class": "Book",
+    "object_id": 100,
+    "title": "Rambo",
+    "author": "SLY",
+    "rentals": [
+
+    ]
+  },
+  {
+    "_class": "Book",
+    "object_id": 80,
+    "title": "Superman",
+    "author": "Spiderman",
+    "rentals": [
+
+    ]
+  }
+]
