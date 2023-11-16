@@ -22,9 +22,12 @@ loop do
   app.display_menu
   option = gets.chomp
 
-  break if option == '7'
-
-  process_options(app, option)
+  if option == '7'
+    puts 'Thank you for using this app!'
+    app.close
+    break
+  else
+    process_options(app, option)
+  end
 end
 
-puts 'Thank you for using this app!'

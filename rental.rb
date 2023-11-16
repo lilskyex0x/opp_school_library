@@ -12,13 +12,11 @@ class Rental
     person['rentals']
   end
 
-  def to_h
+  def to_json(*_args)
     {
-      _class: self.class.name,
-      object_id: object_id,
-      date: @date,
-      book: @book,
-      person: @person
-    }
+      'date' => @date,
+      'book' => @book,
+      'person' => @person
+    }.to_json
   end
 end

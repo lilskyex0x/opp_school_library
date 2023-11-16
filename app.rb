@@ -1,19 +1,29 @@
 require './book'
 require './student'
 require './teacher'
-require './preserve_data'
+require './manager'
 
 class App
   attr_accessor :books, :people, :rentals
 
   def initialize
-    @books = read_file('./data/books.json')
-    @people = read_file('./data/people.json')
-    @rentals = read_file('./data/rentals.json')
+    @people = Manager.new('./data/people.json').load_data
+    @books = Manager.new('./data/books.json').load_data
+    @rentals = Manager.new('./data/rentals.json').load_data 
+  end
+
+  def save_json
+    people_json = Manager.new('./data/people.json')
+    people_json.save_data(@people)
+
+    rentals_json = Manager.new('./data/rentals.json')
+    rentals_json.save_data(@rentals)
+
+    books_json = Manager.new('./data/books.json')
+    books_json.save_data(@books)
   end
 
   def book_list
-    @books = read_file('./data/books.json')
     if @books.empty?
       puts 'There is no book in the list'
     else
@@ -26,15 +36,14 @@ class App
   end
 
   def people_list
-    @people = read_file('./data/people.json')
     if @people.empty?
       puts 'There is no people in the list'
     else
       @people.each_with_index do |person, index|
-        if person['_class'] == 'Teacher'
+        if person.key?('specialization')
           puts "#{index} [Teacher] Name: #{person['name']}, ID: #{person['id']}, Age: #{person['age']}"
-        elsif person['_class'] == 'Student'
-          puts "#{index} [Student] Name: #{person['name']} ID: #{person['id']}, Age: #{person['age']}"
+        else
+          puts "#{index} [Student] Name: #{person['name']}, ID: #{person['id']}, Age: #{person['age']}"
         end
       end
     end
@@ -58,8 +67,7 @@ class App
     name = get_user_input('Name:')
     specialization = get_user_input('Specialization:')
     parent_permission = true
-    @people.push Teacher.new(age: age, name: name, specialization: specialization, parent_permission: parent_permission)
-    write_file(@people, './data/people.json')
+    @people << Teacher.new(age: age, name: name, specialization: specialization, parent_permission: parent_permission)
     puts 'Person created successfully!'
   end
 
@@ -69,8 +77,7 @@ class App
     permission = get_user_input('Has parent permission? [y/n]').downcase
     parent_permission = permission == 'y'
     classroom = get_user_input('Classroom:')
-    @people.push Student.new(age: age, name: name, parent_permission: parent_permission, classroom: classroom)
-    write_file(@people, './data/people.json')
+    @people << Student.new(age: age, name: name, parent_permission: parent_permission, classroom: classroom)
     puts 'Person created successfully!'
   end
 
@@ -79,26 +86,24 @@ class App
     author = get_user_input('Author:')
     book = Book.new(title, author)
     @books.push(book)
-    write_file(@books, './data/books.json')
     puts 'Book created successfully!'
   end
 
   def new_rental
     puts 'Select a book from the following list by number:'
     book_list
-    @books = read_file('./data/books.json')
     book_index = get_user_input('').to_i
     rented_book = @books[book_index]
+    
     puts 'Select a person from the following list by number (not id)'
     people_list
-    @people = read_file('./data/people.json')
     person_index = get_user_input('').to_i
     renter = @people[person_index]
+
     puts 'Date (YYYY-MM-DD):'
     date = get_user_input('')
     if renter['parent_permission'] == true
       @rentals.push Rental.new(date, rented_book, renter)
-      write_file(@rentals, './data/rentals.json')
       puts 'Rental created successfully'
     else
       puts 'Person lacks borrow permissions'
@@ -106,7 +111,6 @@ class App
   end
 
   def rental_list
-    @rentals = read_file('./data/rentals.json')
     renter_id = get_user_input('ID of person:')
     renter = @people.find { |person| person['id'] == renter_id.to_i }
     if renter.nil?
@@ -137,5 +141,9 @@ class App
   def get_user_input(prompt)
     puts prompt
     gets.chomp
+  end
+
+  def close
+    save_json
   end
 end

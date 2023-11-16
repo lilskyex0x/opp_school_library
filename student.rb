@@ -21,16 +21,13 @@ class Student < Person
     of_age? || @parent_permission
   end
 
-  def to_h
+  def to_json(*_args)
     {
-      _class: self.class.name,
-      object_id: object_id,
-      id: @id,
-      name: @name,
-      age: @age,
-      parent_permission: @parent_permission,
-      rentals: @rentals,
-      classroom: @classroom
-    }
+      'id' => id,
+      'age' => @age,
+      'name' => @name,
+      'parent_permission' => @parent_permission,
+      'classroom' => @classroom
+    }.to_json
   end
 end

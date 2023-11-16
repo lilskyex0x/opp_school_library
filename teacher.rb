@@ -10,16 +10,13 @@ class Teacher < Person
     true
   end
 
-  def to_h
+  def to_json(*_args)
     {
-      _class: self.class.name,
-      object_id: object_id,
-      id: @id,
-      name: @name,
-      age: @age,
-      specialization: @specialization,
-      parent_permission: @parent_permission,
-      rentals: @rentals
-    }
+      'id' => id,
+      'age' => @age,
+      'name' => @name,
+      'parent_permission' => @parent_permission,
+      'specialization' => @specialization
+    }.to_json
   end
 end

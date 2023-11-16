@@ -1,8 +1,6 @@
 [
   {
-    "_class": "Rental",
-    "object_id": 60,
-    "date": "2023-11-15",
+    "date": "2023-11-16",
     "book": {
       "_class": "Book",
       "object_id": 120,
@@ -13,42 +11,11 @@
       ]
     },
     "person": {
-      "_class": "Student",
-      "object_id": 60,
-      "id": 177,
-      "name": "Ann",
+      "id": 705,
       "age": "23",
+      "name": "lilsnow",
       "parent_permission": true,
-      "rentals": [
-
-      ],
-      "classroom": "Mathematics"
-    }
-  },
-  {
-    "_class": "Rental",
-    "object_id": 80,
-    "date": "2023-11-15",
-    "book": {
-      "_class": "Book",
-      "object_id": 120,
-      "title": "Advanced Ruby",
-      "author": "RoR",
-      "rentals": [
-
-      ]
-    },
-    "person": {
-      "_class": "Teacher",
-      "object_id": 60,
-      "id": 434,
-      "name": "bobMerley",
-      "age": "45",
-      "specialization": "Singing",
-      "parent_permission": true,
-      "rentals": [
-
-      ]
+      "classroom": "Art"
     }
   }
 ]
