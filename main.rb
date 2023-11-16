@@ -30,4 +30,3 @@ loop do
     process_options(app, option)
   end
 end
-

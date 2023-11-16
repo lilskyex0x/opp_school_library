@@ -9,7 +9,7 @@ class App
   def initialize
     @people = Manager.new('./data/people.json').load_data
     @books = Manager.new('./data/books.json').load_data
-    @rentals = Manager.new('./data/rentals.json').load_data 
+    @rentals = Manager.new('./data/rentals.json').load_data
   end
 
   def save_json
@@ -94,7 +94,7 @@ class App
     book_list
     book_index = get_user_input('').to_i
     rented_book = @books[book_index]
-    
+
     puts 'Select a person from the following list by number (not id)'
     people_list
     person_index = get_user_input('').to_i
