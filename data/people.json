@@ -5,5 +5,40 @@
     "name": "lilsnow",
     "parent_permission": true,
     "classroom": "Art"
+  },
+  {
+    "id": 399,
+    "age": "46",
+    "name": "Stitch",
+    "parent_permission": true,
+    "specialization": "Cartoon"
+  },
+  {
+    "id": 192,
+    "age": "56",
+    "name": "Bobby",
+    "parent_permission": true,
+    "specialization": "Math"
+  },
+  {
+    "id": 716,
+    "age": "23",
+    "name": "MyaMya",
+    "parent_permission": true,
+    "classroom": "Sport"
+  },
+  {
+    "id": 906,
+    "age": "56",
+    "name": "George",
+    "parent_permission": true,
+    "specialization": "Botany"
+  },
+  {
+    "id": 388,
+    "age": "12",
+    "name": "NyiNyi",
+    "parent_permission": true,
+    "classroom": "Science"
   }
 ]
