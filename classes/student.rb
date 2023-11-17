@@ -1,11 +1,11 @@
-require './person'
-require './classroom'
+require './classes/person'
+require './classes/classroom'
 
 class Student < Person
   attr_accessor :classroom
 
-  def initialize(classroom:, age:, parent_permission: true, name: 'Unknown')
-    super(age, name: name, parent_permission: parent_permission)
+  def initialize(classroom:, age: nil, parent_permission: true, name: 'Unknown')
+    super(age: age, name: name, parent_permission: parent_permission)
     @classroom = classroom
   end
 
@@ -27,7 +27,7 @@ class Student < Person
       'age' => @age,
       'name' => @name,
       'parent_permission' => @parent_permission,
-      'classroom' => @classroom
+      'classroom' => @classroom.label
     }.to_json
   end
 end

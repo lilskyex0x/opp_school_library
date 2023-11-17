@@ -1,0 +1,6 @@
+require 'rspec'
+require './classes/book'
+require './classes/person'
+require './classes/decorator'
+require './classes/nameable'
+require './classes/capitalize_decorator'

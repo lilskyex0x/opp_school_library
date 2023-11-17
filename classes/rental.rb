@@ -1,5 +1,5 @@
-require './book'
-require './person'
+require './classes/book'
+require './classes/person'
 
 class Rental
   attr_accessor :date, :book, :person
@@ -7,9 +7,7 @@ class Rental
   def initialize(date, book, person)
     @date = date
     @book = book
-    book['rentals']
     @person = person
-    person['rentals']
   end
 
   def to_json(*_args)

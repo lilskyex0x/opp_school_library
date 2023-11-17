@@ -1,4 +1,4 @@
-require './student'
+require './classes/student'
 
 class Classroom
   attr_accessor :label
