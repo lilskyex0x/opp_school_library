@@ -1,3 +1,4 @@
+require 'json'
 require './classes/teacher'
 
 RSpec.describe Teacher do
@@ -23,6 +24,18 @@ RSpec.describe Teacher do
   describe '#can_use_services?' do
     it 'returns true for teachers' do
       expect(subject.can_use_services?).to be true
+    end
+  end
+
+  describe '#to_json' do
+    it 'returns a valid JSON representation of the teacher' do
+      json_data = JSON.parse(subject.to_json)
+
+      expect(json_data['id']).to be_a(Integer)
+      expect(json_data['age']).to eq(age)
+      expect(json_data['name']).to eq(name)
+      expect(json_data['parent_permission']).to eq(parent_permission)
+      expect(json_data['specialization']).to eq(specialization)
     end
   end
 end

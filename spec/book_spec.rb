@@ -30,7 +30,9 @@ describe Book do
   it 'to_json should turn book into a json file' do
     file_path = './data/book_test.json'
     json = File.exist?(file_path) ? JSON.parse(File.read(file_path)) : {}
-    File.write(file_path, JSON.pretty_generate(book))
+    json_data = JSON.parse(book.to_json)
+    expect(book.title).to eql(json_data['title'])
+    expect(book.author).to eql(json_data['author'])
     puts "book.title: #{book.title}"
     puts "json['title']: #{json['title']}"
     expect(book.title).to eql(json['title'])

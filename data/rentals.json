@@ -6,9 +6,7 @@
       "object_id": 100,
       "title": "Ruby 101",
       "author": "Tshepo",
-      "rentals": [
-
-      ]
+      "rentals": []
     },
     "person": {
       "id": 716,
@@ -25,9 +23,7 @@
       "object_id": 120,
       "title": "Computer Science",
       "author": "Dumisani",
-      "rentals": [
-
-      ]
+      "rentals": []
     },
     "person": {
       "id": 906,
@@ -35,6 +31,23 @@
       "name": "George",
       "parent_permission": true,
       "specialization": "Botany"
+    }
+  },
+  {
+    "date": "2023-11-17",
+    "book": {
+      "_class": "Book",
+      "object_id": 120,
+      "title": "Computer Science",
+      "author": "Dumisani",
+      "rentals": []
+    },
+    "person": {
+      "id": 716,
+      "age": "23",
+      "name": "MyaMya",
+      "parent_permission": true,
+      "classroom": "Sport"
     }
   }
 ]
