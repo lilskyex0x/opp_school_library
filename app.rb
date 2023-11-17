@@ -1,6 +1,6 @@
-require './book'
-require './student'
-require './teacher'
+require './classes/book'
+require './classes/student'
+require './classes/teacher'
 require './manager'
 
 class App
@@ -28,7 +28,7 @@ class App
       puts 'There is no book in the list'
     else
       @books.each_with_index do |book, index|
-        rentals_str = book['rentals'].join(', ') # Convert array to string
+        rentals_str = book['rentals'].join(', ')
         puts "#{index} - Title: #{book['title'].capitalize}, " \
              "Author: #{book['author'].capitalize} Rentals: #{rentals_str}"
       end
@@ -40,7 +40,7 @@ class App
       puts 'There is no people in the list'
     else
       @people.each_with_index do |person, index|
-        if person.key?('specialization')
+        if person.include?('specialization')
           puts "#{index} [Teacher] Name: #{person['name']}, ID: #{person['id']}, Age: #{person['age']}"
         else
           puts "#{index} [Student] Name: #{person['name']}, ID: #{person['id']}, Age: #{person['age']}"
@@ -67,8 +67,9 @@ class App
     name = get_user_input('Name:')
     specialization = get_user_input('Specialization:')
     parent_permission = true
-    @people << Teacher.new(age: age, name: name, specialization: specialization, parent_permission: parent_permission)
-    puts 'Person created successfully!'
+    teacher = Teacher.new(age: age, name: name, specialization: specialization, parent_permission: parent_permission)
+    @people << teacher
+    puts "Person created successfully! Added a #{teacher.class} to @people."
   end
 
   def student_create
@@ -77,8 +78,9 @@ class App
     permission = get_user_input('Has parent permission? [y/n]').downcase
     parent_permission = permission == 'y'
     classroom = get_user_input('Classroom:')
-    @people << Student.new(age: age, name: name, parent_permission: parent_permission, classroom: classroom)
-    puts 'Person created successfully!'
+    student = Student.new(age: age, name: name, parent_permission: parent_permission, classroom: classroom)
+    @people << student
+    puts "Person created successfully! Added a #{student.class} to @people."
   end
 
   def new_book
