@@ -1,12 +1,12 @@
-require './capitalize_decorator'
-require './person'
+require_relative 'spec_helper'
 
-describe CapitalizeDecorator do
-    context "Create an instance of capitalize and test functionality"
+RSpec.describe CapitalizeDecorator do
+  let(:nameable_double) { double('Nameable', correct_name: 'lilsnow') }
+  let(:capitalize_decorator) { described_class.new(nameable_double) }
 
-    it "should capitalize the first name" do
-        person = Person.new(33, "tshepo")
-        capitalize_person = CapitalizeDecorator.new(person).correct_name
-        expect(capitalize_person).to eq "Tshepo"
+  describe '#correct_name' do
+    it 'capitalizes the correct_name of the underlying nameable object' do
+      expect(capitalize_decorator.correct_name).to eq('Lilsnow')
     end
+  end
 end

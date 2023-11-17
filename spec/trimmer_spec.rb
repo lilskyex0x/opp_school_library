@@ -1,6 +1,6 @@
-require './person'
-require './trimmer_decorator'
-require './capitalize_decorator'
+require './classes/person'
+require './classes/trimmer_decorator'
+require './classes/capitalize_decorator'
 
 RSpec.describe TrimmerDecorator do
   let(:nameable) { double('Nameable', correct_name: 'VeryLongNameThatNeedsTrimming') }

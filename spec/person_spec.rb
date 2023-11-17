@@ -1,28 +1,28 @@
-require './person'
-require './rental'
-require './book'
+require './classes/person'
+require './classes/rental'
+require './classes/book'
 
 RSpec.describe Person do
   let(:age) { 20 }
   let(:name) { 'Dumisani' }
   let(:parent_permission) { true }
-  subject { described_class.new(age, name, parent_permission: parent_permission) }
+  subject { described_class.new(age: age, name: name, parent_permission: parent_permission) }
 
   describe '#initialize' do
-    it 'creates an instance of person with age, name and parent permission' do
+    it 'creates an instance of person with age, name, and parent permission' do
       expect(subject.age).to eq(age)
       expect(subject.name).to eq(name)
       expect(subject.rentals).to be_empty
     end
 
-    it 'it generated a random ID between 1 and 1000' do
-        expect(subject.id).to be_between(1, 1000).inclusive
+    it 'generates a random ID between 1 and 1000' do
+      expect(subject.id).to be_between(1, 1000).inclusive
     end
   end
 
   describe '#correct_name' do
     it 'returns the name as it is' do
-        expect(subject.correct_name).to eq(name)
+      expect(subject.correct_name).to eq(name)
     end
   end
 
@@ -38,11 +38,11 @@ RSpec.describe Person do
     context 'when the person is underage with parent permission' do
       let(:age) { 15 }
 
-      it 'return true' do
+      it 'returns true' do
         expect(subject.can_use_services?).to be true
       end
     end
-    
+
     context 'when the person is underage without parent permission' do
       let(:age) { 15 }
       let(:parent_permission) { false }
@@ -50,7 +50,7 @@ RSpec.describe Person do
       it 'returns false' do
         expect(subject.can_use_services?).to be false
       end
-    end 
+    end
   end
 
   describe '#add_rental' do

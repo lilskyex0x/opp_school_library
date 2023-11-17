@@ -1,11 +1,13 @@
-require './teacher'
+require './classes/teacher'
 
 RSpec.describe Teacher do
   let(:specialization) { 'Mathematics' }
   let(:age) { 35 }
   let(:name) { 'Ms. Johnson' }
   let(:parent_permission) { true }
-  subject { described_class.new(specialization: specialization, age: age, name: name, parent_permission: parent_permission) }
+  subject do
+    described_class.new(specialization: specialization, age: age, name: name, parent_permission: parent_permission)
+  end
 
   describe '#initialize' do
     it 'creates an instance of Teacher with the given specialization, age, name, and parent permission' do
